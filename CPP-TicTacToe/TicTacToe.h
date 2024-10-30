@@ -9,16 +9,16 @@ class TicTacToe : public Game
 private:
 
 	char m_board[9] = {'1','2','3','4','5','6','7','8','9'};
-	int player = 1;
+	int m_player = 1;
 	//This variable is used as an easy way to find if a tie happened
-	int turn = 1;
+	int m_turn = 1;
 
 public:
 
-	//Constructors
+	//Constructor
 	TicTacToe() { }
 
-	//Destructors
+	//Destructor
 	~TicTacToe() { }
 
 	bool IsGameOver() const 
@@ -65,7 +65,7 @@ public:
 			return true;
 		}
 		//Check if all 9 spots on the board are taken if no victory condition is found
-		else if (turn > 9) 
+		else if (m_turn > 9) 
 		{ 
 			std::cout << "It's a tie\n"; 
 			return true; 
@@ -96,10 +96,10 @@ public:
 		int choice = 0;
 		char marker = 'Q';
 
-		std::cout << "Player " << player << "'s turn.\n";
+		std::cout << "Player " << m_player << "'s turn.\n";
 
 		//Assigns player 1 the X and player 2 the O
-		if (player == 1) { marker = 'X'; }
+		if (m_player == 1) { marker = 'X'; }
 		else { marker = 'O'; }
 
 		while (choice < 1 || choice > 9)
@@ -119,10 +119,11 @@ public:
 		}
 
 		//Change the active player at the end of the turn
-		if (player == 1) { player = 2; }
-		else { player = 1; }
+		if (m_player == 1) { m_player = 2; }
+		else { m_player = 1; }
+
 		//Increment the turn counter
-		turn += 1;
+		m_turn += 1;
 	}
 
 };
