@@ -10,6 +10,7 @@ private:
 
 	char m_board[9] = {'1','2','3','4','5','6','7','8','9'};
 	int player = 1;
+	//This variable is used as an easy way to find if a tie happened
 	int turn = 1;
 
 public:
@@ -22,6 +23,7 @@ public:
 
 	bool IsGameOver() const 
 	{
+		//Check all 8 victory conditions
 		if (m_board[0] == m_board[1] && m_board[1] == m_board[2]) 
 		{ 
 			Victor(m_board[0]);
@@ -62,11 +64,13 @@ public:
 			Victor(m_board[2]);
 			return true;
 		}
+		//Check if all 9 spots on the board are taken if no victory condition is found
 		else if (turn > 9) 
 		{ 
 			std::cout << "It's a tie\n"; 
 			return true; 
 		}
+		//Return false if no victory or tie is found
 		else { return false; }
 	}
 
@@ -110,13 +114,14 @@ public:
 				std::cout << "Please place your piece on an empty spot.\n"; 
 				choice = 0;
 			}
+			//If the spot chosen is on the board and not already taken, place the marker down
 			else { m_board[choice - 1] = marker; }
 		}
 
 		//Change the active player at the end of the turn
 		if (player == 1) { player = 2; }
 		else { player = 1; }
-		//Incriment the turn counter
+		//Increment the turn counter
 		turn += 1;
 	}
 
