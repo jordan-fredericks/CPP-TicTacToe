@@ -28,6 +28,6 @@ public:
 
 	void Display() const;
 
-	void TakeTurn():
+	void TakeTurn();
 
 };
