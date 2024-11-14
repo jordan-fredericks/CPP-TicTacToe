@@ -8,6 +8,7 @@ class TicTacToe : public Game
 {
 private:
 
+	//Initialized the board array with numbers to make displaying the board easier
 	char m_board[9] = {'1','2','3','4','5','6','7','8','9'};
 	int m_player = 1;
 	//This variable is used as an easy way to find if a tie happened
